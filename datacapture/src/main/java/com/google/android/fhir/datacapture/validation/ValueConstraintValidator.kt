@@ -30,7 +30,7 @@ internal open class ValueConstraintValidator(
     questionnaireItem: Questionnaire.QuestionnaireItemComponent,
     questionnaireResponseItem: QuestionnaireResponse.QuestionnaireResponseItemComponent
   ): ConstraintValidator.ConstraintValidationResult {
-    if (questionnaireItem.hasExtension(url)) {
+    if (questionnaireItem.hasExtension(url) && !questionnaireResponseItem.answer.isEmpty()) {
       val extension = questionnaireItem.getExtensionByUrl(url)
       val answer = questionnaireResponseItem.answer[0]
       if (predicate(extension, answer)) {
