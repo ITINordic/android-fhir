@@ -21,11 +21,12 @@ import org.hl7.fhir.r4.model.QuestionnaireResponse
 
 internal object QuestionnaireResponseItemValidator {
 
-  private val validators = mutableListOf(
-    RequiredConstraintValidator,
-    MaxValueConstraintValidator,
-    MinValueConstraintValidator
-  )
+  private val validators =
+    mutableListOf(
+      RequiredConstraintValidator,
+      MaxValueConstraintValidator,
+      MinValueConstraintValidator
+    )
 
   /** Validates [questionnaireResponseItem] contains valid answer(s) to [questionnaireItem]. */
   fun validate(
